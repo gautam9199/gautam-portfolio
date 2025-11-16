@@ -1,13 +1,18 @@
 {
   "files": {
     "main.css": "/gautam-portfolio/static/css/main.ed171953.css",
-    "main.js": "/gautam-portfolio/static/js/main.6bdfb4aa.js",
+    "main.js": "/gautam-portfolio/static/js/main.06a36501.js",
+    "static/media/lira.png": "/gautam-portfolio/static/media/lira.f335241fc3c9f9fc07e6.png",
+    "static/media/macrosoft-logo.png": "/gautam-portfolio/static/media/macrosoft-logo.bf1015447742b0ea6cf8.png",
+    "static/media/marwadi.png": "/gautam-portfolio/static/media/marwadi.1e9d7864c0a83e8aacd3.png",
+    "static/media/photo.jpeg": "/gautam-portfolio/static/media/photo.c7aff0f3d823c8c370f0.jpeg",
+    "static/media/upb-logo.svg": "/gautam-portfolio/static/media/upb-logo.962240cc663c81bc979df2f0ee502138.svg",
     "index.html": "/gautam-portfolio/index.html",
     "main.ed171953.css.map": "/gautam-portfolio/static/css/main.ed171953.css.map",
-    "main.6bdfb4aa.js.map": "/gautam-portfolio/static/js/main.6bdfb4aa.js.map"
+    "main.06a36501.js.map": "/gautam-portfolio/static/js/main.06a36501.js.map"
   },
   "entrypoints": [
     "static/css/main.ed171953.css",
-    "static/js/main.6bdfb4aa.js"
+    "static/js/main.06a36501.js"
   ]
 }
