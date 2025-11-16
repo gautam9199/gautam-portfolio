@@ -67,6 +67,26 @@ body {
   flex-direction: column;
   background: var(--app-bg);
   color: var(--text);
+  position: relative;      /* <— add this */
+  overflow: hidden;        /* optional, keeps canvas from weird scroll issues */
+}
+
+/* canvas background */
+#bg-particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* don't block clicks */
+}
+
+/* ensure content is above the canvas */
+.header,
+.main,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .header {

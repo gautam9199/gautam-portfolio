@@ -3,6 +3,8 @@ import content from "./content";
 import techIcons from "./techIcons";
 import "./index.css";
 import { FiMail, FiGithub, FiLinkedin, FiMoon, FiSun } from "react-icons/fi";
+import BackgroundParticles from "./BackgroundParticles";
+
 
 const sections = [
   { id: "experience", label: "Experience" },
@@ -23,8 +25,14 @@ function App() {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
+  const summaryLines = content.summary
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
   return (
     <div className={`app mode-${mode}`}>
+      <BackgroundParticles mode={mode} />
       <header className="header">
         <div className="brand">
           <div>
@@ -135,7 +143,14 @@ function App() {
             </p>
             <h2 className="hero-title">Professional Summary</h2>
             <p className="hero-text">
-              {content.summary.trim()}
+              {summaryLines.length > 0 && (
+                <ul className="hero-summary-list">
+                  {summaryLines.map((line, idx) => (
+                    <li key={idx}>{line}</li>
+                  ))}
+                </ul>
+              )}
+
             </p>
             <div className="hero-actions">
               <a

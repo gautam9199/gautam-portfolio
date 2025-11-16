@@ -1,20 +1,37 @@
 // src/content.js
 
+// Profile photo
+import profileImg from "./assets/logos/photo.jpeg";
+
+// Company logos
+import liraLogo from "./assets/logos/lira.png";
+import macrosoftLogo from "./assets/logos/macrosoft-logo.png";
+import steepgraphLogo from "./assets/logos/steepgraph-logo_1.png";
+
+// University logos
+import paderbornLogo from "./assets/logos/upb-logo.svg";
+import marwadiLogo from "./assets/logos/marwadi.png";
+
 const content = {
   name: "Gautam Parmar",
   role: "Software Engineer",
   location: "Paderborn, Germany",
   email: "gautamparmar201@gmail.com",
   phone: "+49 17657617231",
-  profileImage: "/logos/photo.jpeg", // <--- NEW: put your photo in public/profile.jpg
+  profileImage: profileImg,
   links: {
     linkedin: "https://www.linkedin.com/in/gautam-parmar-78857b12a",
     github: "https://github.com/gautam9199"
   },
 
   summary: `
-Technically sound and learning-enthusiastic software engineer with experience delivering robust and reliable solutions for real customers. I’ve worked across backend, frontend and DevOps, from design and implementation to deployment, configuration and client interaction. My main experience is with Java/Spring, REST APIs, and modern web frontends, with a strong focus on maintainability and good developer experience.
-  `,
+Work mainly with Java, Spring Boot and Angular to build and maintain business and ERP systems, usually in a microservice setting.
+Take features from data model and database changes through to REST APIs and frontend components, including testing and review.
+Improve existing code by reducing response size, tuning queries and using patterns like DTOs, AOP and optimistic locking where they fit.
+Review code from other developers and give feedback on correctness, performance and structure.
+Hold an M.Sc. in Computer Science from Paderborn University with a thesis on Jimple to JVM bytecode transformation using SootUp and ASM, plus coursework in machine learning for software engineering.
+`,
+
 
   skills: [
     {
@@ -70,44 +87,57 @@ Technically sound and learning-enthusiastic software engineer with experience de
       company: "LIRA Service GmbH",
       role: "Software Engineer",
       location: "Paderborn, Germany",
-      period: "Oct 2022 – Present",
-      logo: "/logos/lira.png", // put the logo file here
+      period: "Oct 2022 – Present (student developer → full-time from Apr 2025)",
+      logo: liraLogo,
       milestones: [
-        "Design and evolve multi-tenant, microservice-based web systems for European customers.",
-        "Improve performance, reliability and observability of ERP modules in production.",
-        "Define service boundaries and tenant isolation for secure and maintainable architecture.",
-        "Drive CI/CD pipeline improvements for safer, faster releases."
+        "Work on an in-house ERP system built with Spring Boot microservices and a multi-module Angular frontend.",
+        "Implement features end-to-end: database schema, entities/DTOs, services, JPA/Hibernate, REST APIs, and matching Angular modules and components.",
+        "Review code from other team members with focus on correctness, performance and consistent design.",
+        "Reduced load time for list views by about 70% by introducing lightweight DTOs and cutting down data returned per request.",
+        "Implemented iText-based PDF templating for dynamic documents such as invoices, offers, orders, dispatch papers, controlling reports and cashflow.",
+        "Added AOP-based filtering at the Hibernate layer to support multi-company data separation by company ID.",
+        "Introduced soft delete and optimistic locking to keep historical data while avoiding conflicting updates."
       ],
-      techStack: ["java", "spring", "microservices", "postgres", "docker", "git"]
+      techStack: [
+        "java",
+        "spring",
+        "microservices",
+        "postgres",
+        "docker",
+        "git",
+        "angular",
+        "js",
+        "html5",
+        "css3"
+      ]
     },
     {
       company: "Macrosoft Creations",
-      role: "Software Engineer (Angular)",
+      role: "Software Developer (Angular / Node.js)",
       location: "GIFT City, Gandhinagar, India",
       period: "Oct 2020 – Mar 2021",
-      logo: "/logos/macrosoft-logo.png",
+      logo: macrosoftLogo,
       milestones: [
-        "Built interactive dashboards with charts, tables and workflow visualisations using Angular and Ant Design.",
-        "Implemented testing, logging and bug-fixing for long-term support and great UX.",
-        "Worked closely with stakeholders to convert business requirements into detailed technical solutions."
+        "Worked on a web application stack with Angular on the frontend and Node.js on the backend.",
+        "Built and updated Angular components, routing and services to work with REST APIs.",
+        "Added or adapted Node.js endpoints to support frontend requirements and API contracts."
       ],
       techStack: ["angular", "js", "html5", "css3", "git"]
     },
     {
       company: "SteepGraph Systems Pvt. Ltd.",
-      role: "Software Engineer",
+      role: "Trainee Engineer → Software Engineer",
       location: "Pune, India",
-      period: "Mar 2019 – Aug 2020",
-      logo: "/logos/steepgraph-logo (1).png",
+      period: "Mar 2019 – Aug 2020 (about 1.5 years)",
+      logo: steepgraphLogo,
       milestones: [
-        "Created robust solutions for multiple PLM projects using REST services, Java, Spring, Spring Boot and C# .NET.",
-        "Worked with PLM tools such as Dassault 3DEXPERIENCE, Enovia and ARAS.",
-        "Contributed both as a developer and part of the DevOps team for deployment and configuration.",
-        "Shared knowledge with teammates and worked using Agile/Scrum for smooth project delivery."
+        "Started as trainee and moved to software engineer after two months.",
+        "Worked in the PLM domain, building REST APIs and integration logic with PLM frameworks such as Dassault 3DEXPERIENCE dashboards and Aras.",
+        "Used Java, Java OOP concepts, JavaScript and Angular to extend and integrate PLM solutions.",
+        "This role formed the base of my experience with Java, REST and frontend integration."
       ],
       techStack: ["java", "spring", "oracle", "mysql", "git"]
     }
-    
   ],
 
   education: [
@@ -115,21 +145,23 @@ Technically sound and learning-enthusiastic software engineer with experience de
       degree: "M.Sc. Computer Science",
       school: "Paderborn University",
       location: "Paderborn, Germany",
-      period: "Oct 2021 – Dec 2024",
-      logo: "/logos/upb-logo.svg"
+      period: "Dec 2021 – Present",
+      logo: paderbornLogo
     },
     {
       degree: "B.E. Computer Engineering",
       school: "Marwadi University",
       location: "Gujarat, India",
       period: "2014 – 2018",
-      logo: "/logos/marwadi.png"
+      logo: marwadiLogo
     }
   ],
 
   achievements: [
-    "Certification of Gujarat Smart City Hackathon – built a Uniform Inventory Management System in a 48-hour coding challenge.",
-    "Youth Excellence Program (2018) – six-month residential program (BAPS) on selfless humanitarian service, ethics, soft skills and leadership."
+    "Completed a master’s thesis in the SSE department on a Jimple to JVM bytecode transformer using SootUp and ASM with a final grade of 2.7.",
+    "Reduced load times of key ERP list views at LIRA by about 70% through DTO and query changes.",
+    "Moved from trainee engineer to software engineer at SteepGraph within the first months.",
+    "Took over regular code review responsibilities at LIRA for parts of the ERP codebase."
   ],
 
   languages: [
