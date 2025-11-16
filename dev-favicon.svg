@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="#05070c"/>
+
+  <!-- Accent ring -->
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#4da3ff" stroke-width="2.5" />
+
+  <!-- Inner circle -->
+  <circle cx="32" cy="32" r="17" fill="#0b101d"/>
+
+  <!-- </> symbol -->
+  <g fill="none" stroke="#f4f5f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6">
+    <!-- left angle bracket -->
+    <path d="M26 24 L20 32 L26 40" />
+    <!-- right angle bracket -->
+    <path d="M38 24 L44 32 L38 40" />
+    <!-- slash -->
+    <path d="M32 24 L28.5 40" />
+  </g>
+</svg>
