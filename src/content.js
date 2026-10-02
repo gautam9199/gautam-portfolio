@@ -1,4 +1,6 @@
 // src/content.js
+// Single source of truth for the site. Keep it in sync with the resume:
+// every claim here must be something you can explain in an interview.
 
 // Profile photo
 import profileImg from "./assets/logos/photo.jpeg";
@@ -15,70 +17,78 @@ import marwadiLogo from "./assets/logos/marwadi.png";
 const content = {
   name: "Gautam Parmar",
   role: "Software Engineer",
+  headline: "Java / Spring Boot · E-Invoicing · ERP Systems",
+  pitch:
+    "I build enterprise ERP software in Java, Spring Boot and Angular, and I'm at my best turning complex business rules into clean, reusable designs. Right now I own an end-to-end e-invoicing solution for XRechnung and ZUGFeRD.",
   location: "Paderborn, Germany",
   email: "gautamparmar201@gmail.com",
   phone: "+49 17657617231",
   profileImage: profileImg,
+  resumePdf: "Gautam_Parmar_Resume.pdf",
   links: {
     linkedin: "https://www.linkedin.com/in/gautam-parmar-78857b12a",
     github: "https://github.com/gautam9199"
   },
 
-  summary: `
-Work mainly with Java, Spring Boot and Angular to build and maintain business and ERP systems, usually in a microservice setting.
-Take features from data model and database changes through to REST APIs and frontend components, including testing and review.
-Improve existing code by reducing response size, tuning queries and using patterns like DTOs, AOP and optimistic locking where they fit.
-Review code from other developers and give feedback on correctness, performance and structure.
-Hold an M.Sc. in Computer Science from Paderborn University with a thesis on Jimple to JVM bytecode transformation using SootUp and ASM, plus coursework in machine learning for software engineering.
-`,
+  facts: [
+    { label: "Experience", value: "4+ years professional" },
+    { label: "Based in", value: "Paderborn · open to remote" },
+    { label: "Work permit", value: "EU Blue Card, no sponsorship needed" },
+    { label: "Education", value: "M.Sc. CS, degree expected spring 2027" }
+  ],
 
+  highlights: [
+    { value: "~70%", label: "faster ERP list views on datasets with millions of records" },
+    { value: ">90%", label: "line coverage maintained with JUnit and Mockito" },
+    { value: "3", label: "e-invoice outputs from one pipeline: XRechnung UBL, XRechnung CII, ZUGFeRD" }
+  ],
 
-  skills: [
+  projects: [
     {
-      category: "Backend & APIs",
-      technologies: [
-        { name: "Java", icon: "java" },
-        { name: "Spring Boot", icon: "spring" },
-        { name: "Spring MVC", icon: "spring" },
-        { name: "REST APIs", icon: "api" },
-        { name: "Microservices", icon: "microservices" }
-      ]
+      title: "E-invoicing pipeline for an ERP system",
+      context: "LIRA Service GmbH · design and ownership · go-live Q4 2026",
+      problem:
+        "Germany's B2B e-invoicing mandate requires structured invoices that pass the official validation rules.",
+      approach:
+        "Two-stage pipeline: ERP data maps to a canonical in-house XML template, which is transformed into the target format and validated with the KoSIT validator and Schematron rules. Built as a reusable library with separate interface and contract modules.",
+      result:
+        "New formats plug in without touching the core; the same architecture is now being extended to Slovak e-invoicing. Also handles summary invoices across partial invoices that span VAT rate changes.",
+      tags: ["Java 17", "Spring Boot", "EN 16931", "XRechnung", "ZUGFeRD", "Schematron"]
     },
     {
-      category: "Frontend",
-      technologies: [
-        { name: "React", icon: "react" },
-        { name: "Angular", icon: "angular" },
-        { name: "JavaScript", icon: "js" },
-        { name: "HTML5", icon: "html5" },
-        { name: "CSS3", icon: "css3" }
-      ]
+      title: "Faster list views on million-row datasets",
+      context: "LIRA Service GmbH · performance",
+      problem: "Key ERP list views were slow because each request returned far more data than the screen needed.",
+      approach: "Introduced lightweight DTOs and reworked SQL queries and data structures to cut the data returned per request.",
+      result: "List-view load times dropped by about 70%.",
+      tags: ["Hibernate / JPA", "SQL", "PostgreSQL", "DTOs"]
     },
     {
-      category: "Databases",
-      technologies: [
-        { name: "PostgreSQL", icon: "postgres" },
-        { name: "MySQL", icon: "mysql" },
-        { name: "Oracle", icon: "oracle" }
-      ]
+      title: "Multi-company data isolation",
+      context: "LIRA Service GmbH · data integrity",
+      problem: "Several companies share one ERP instance, and concurrent edits must not overwrite each other.",
+      approach: "AOP-based filtering at the Hibernate layer separates data by company ID; soft delete keeps history; optimistic locking prevents conflicting updates.",
+      result: "Data stays separated by company and consistent under concurrent use.",
+      tags: ["Spring AOP", "Hibernate filters", "Optimistic locking"]
     },
     {
-      category: "DevOps & Tools",
-      technologies: [
-        { name: "Git", icon: "git" },
-        { name: "Docker", icon: "docker" },
-        { name: "Linux", icon: "linux" },
-        { name: "CI/CD", icon: "cicd" },
-        { name: "JIRA", icon: "jira" }
-      ]
+      title: "Jimple-to-JVM bytecode transformer",
+      context: "M.Sc. thesis · Paderborn University",
+      problem: "Goal: turn programs in SootUp's Jimple intermediate representation back into runnable JVM bytecode.",
+      approach: "Built a transformer from Jimple to JVM bytecode with ASM, inside a fork of the SootUp static-analysis framework.",
+      result: "Evaluated for semantic correctness, textual equivalence and performance; code and results are public.",
+      tags: ["Java", "SootUp", "ASM", "Static analysis"],
+      link: { label: "Code", url: "https://github.com/gautam9199/SootUp/tree/develop/jimple.transformer" },
+      secondaryLink: { label: "Evaluation", url: "https://github.com/gautam9199/MSThesis" }
     },
     {
-      category: "Other",
-      technologies: [
-        { name: "Python", icon: "python" },
-        { name: "Agile / Scrum", icon: "agile" },
-        { name: "PLM (3DEXPERIENCE / Enovia / ARAS)", icon: "plm" }
-      ]
+      title: "Validating adaptive stream clustering",
+      context: "M.Sc. seminar · Paderborn University",
+      problem: "Does a published manipulation-detection framework for social-media streams hold up under concept drift?",
+      approach: "Reproduced the textClust pipeline in Python with River and compared adaptive against fixed distance thresholds on several datasets, using interval-based NMI.",
+      result: "A documented, reproducible benchmark of the paper's claims.",
+      tags: ["Python", "River", "Stream clustering", "NLP"],
+      link: { label: "Code", url: "https://github.com/gautam9199/adaptive-textclust-validation" }
     }
   ],
 
@@ -87,57 +97,51 @@ Hold an M.Sc. in Computer Science from Paderborn University with a thesis on Jim
       company: "LIRA Service GmbH",
       role: "Software Engineer",
       location: "Paderborn, Germany",
-      period: "Oct 2022 – Present (student developer → full-time from Apr 2025)",
+      period: "Oct 2022 – Present · full-time since Apr 2025",
       logo: liraLogo,
       milestones: [
-        "Work on an in-house ERP system built with Spring Boot microservices and a multi-module Angular frontend.",
-        "Implement features end-to-end: database schema, entities/DTOs, services, JPA/Hibernate, REST APIs, and matching Angular modules and components.",
-        "Review code from other team members with focus on correctness, performance and consistent design.",
-        "Reduced load time for list views by about 70% by introducing lightweight DTOs and cutting down data returned per request.",
-        "Implemented iText-based PDF templating for dynamic documents such as invoices, offers, orders, dispatch papers, controlling reports and cashflow.",
-        "Added AOP-based filtering at the Hibernate layer to support multi-company data separation by company ID.",
-        "Introduced soft delete and optimistic locking to keep historical data while avoiding conflicting updates."
+        "Design and own the ERP's e-invoicing feature end to end (model → map → generate → send) for XRechnung and ZUGFeRD.",
+        "Built the automated invoice transfer from the ERP to the Varial accounting system, including token-based authentication and transactional handling of each export.",
+        "Cut list-view load times by about 70% on datasets with millions of records.",
+        "Implemented multi-company data isolation with AOP-based Hibernate filtering, soft delete and optimistic locking.",
+        "Built iText-based PDF templating for invoices, offers, orders, dispatch papers and reports.",
+        "Contributed to a new stock-management product (Spring Boot, Eclipse SWT): depreciation logic and its automation, plus JasperReports reports.",
+        "Maintain >90% line coverage and review teammates' code. Promoted from working student (20 h/week) to full-time in Apr 2025."
       ],
-      techStack: [
-        "java",
-        "spring",
-        "microservices",
-        "postgres",
-        "docker",
-        "git",
-        "angular",
-        "js",
-        "html5",
-        "css3"
-      ]
+      stack: ["Java 17", "Spring Boot", "Hibernate / JPA", "Angular", "PostgreSQL", "MySQL", "Docker", "GitLab CI/CD"]
     },
     {
       company: "Macrosoft Creations",
       role: "Software Developer (Angular / Node.js)",
-      location: "GIFT City, Gandhinagar, India",
+      location: "Gandhinagar, India",
       period: "Oct 2020 – Mar 2021",
       logo: macrosoftLogo,
       milestones: [
-        "Worked on a web application stack with Angular on the frontend and Node.js on the backend.",
-        "Built and updated Angular components, routing and services to work with REST APIs.",
-        "Added or adapted Node.js endpoints to support frontend requirements and API contracts."
+        "Built Angular components, routing and services against REST APIs; extended Node.js endpoints to match."
       ],
-      techStack: ["angular", "js", "html5", "css3", "git"]
+      stack: ["Angular", "Node.js", "JavaScript"]
     },
     {
-      company: "SteepGraph Systems Pvt. Ltd.",
-      role: "Trainee Engineer → Software Engineer",
+      company: "SteepGraph Systems",
+      role: "Software Engineer – PLM Integration",
       location: "Pune, India",
-      period: "Mar 2019 – Aug 2020 (about 1.5 years)",
+      period: "Mar 2019 – Aug 2020",
       logo: steepgraphLogo,
       milestones: [
-        "Started as trainee and moved to software engineer after two months.",
-        "Worked in the PLM domain, building REST APIs and integration logic with PLM frameworks such as Dassault 3DEXPERIENCE dashboards and Aras.",
-        "Used Java, Java OOP concepts, JavaScript and Angular to extend and integrate PLM solutions.",
-        "This role formed the base of my experience with Java, REST and frontend integration."
+        "Built REST APIs and integration logic for PLM platforms (Dassault 3DEXPERIENCE, Aras) in Java and JavaScript for enterprise clients.",
+        "Promoted from trainee to software engineer within 3 months."
       ],
-      techStack: ["java", "spring", "oracle", "mysql", "git"]
+      stack: ["Java", "JavaScript", "Angular", "Oracle", "MySQL"]
     }
+  ],
+
+  skills: [
+    { category: "Backend", items: ["Java (8/11/17)", "Spring Boot", "Spring MVC", "Hibernate / JPA", "REST APIs", "AOP"] },
+    { category: "E-invoicing", items: ["EN 16931", "XRechnung (UBL, CII)", "ZUGFeRD", "KoSIT validator", "Schematron", "Varial integration"] },
+    { category: "Frontend", items: ["Angular", "TypeScript", "JavaScript", "React (personal projects)", "Eclipse SWT"] },
+    { category: "Data & reporting", items: ["PostgreSQL", "MySQL", "Oracle", "SQL performance tuning", "JasperReports", "iText"] },
+    { category: "Quality & tooling", items: ["JUnit", "Mockito", "SonarQube", "Docker", "GitLab CI/CD", "Git", "Linux", "AI-assisted development (Claude)"] },
+    { category: "Currently learning", items: ["Kubernetes", "Cloud deployment", "LLM application engineering"] }
   ],
 
   education: [
@@ -146,6 +150,7 @@ Hold an M.Sc. in Computer Science from Paderborn University with a thesis on Jim
       school: "Paderborn University",
       location: "Paderborn, Germany",
       period: "Dec 2021 – Present",
+      note: "Thesis completed (Jimple-to-JVM bytecode transformer); 114 of 120 ECTS, final module in winter 2026/27, degree expected spring 2027. Part-time alongside work. DevOps lead in a 14-person project group.",
       logo: paderbornLogo
     },
     {
@@ -153,25 +158,19 @@ Hold an M.Sc. in Computer Science from Paderborn University with a thesis on Jim
       school: "Marwadi University",
       location: "Gujarat, India",
       period: "2014 – 2018",
+      note: "Focus: data structures, algorithms, databases, software engineering.",
       logo: marwadiLogo
     }
   ],
 
-  achievements: [
-    "Completed a master’s thesis in the SSE department on a Jimple to JVM bytecode transformer using SootUp and ASM with a final grade of 2.7.",
-    "Reduced load times of key ERP list views at LIRA by about 70% through DTO and query changes.",
-    "Moved from trainee engineer to software engineer at SteepGraph within the first months.",
-    "Took over regular code review responsibilities at LIRA for parts of the ERP codebase."
-  ],
-
   languages: [
-    { name: "English", level: "Professional Working Proficiency" },
-    { name: "German", level: "Elementary (A1.1)" },
-    { name: "Hindi", level: "Native / Bilingual" },
-    { name: "Gujarati", level: "Native / Bilingual" }
+    { name: "English", level: "Professional working proficiency" },
+    { name: "German", level: "A1, learning toward B1" },
+    { name: "Hindi", level: "Native" },
+    { name: "Gujarati", level: "Native" }
   ],
 
-  interests: ["Playing volleyball", "Volunteering & social work"]
+  interests: ["Volleyball", "Volunteering & social work"]
 };
 
 export default content;

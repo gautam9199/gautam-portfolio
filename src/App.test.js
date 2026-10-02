@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+beforeAll(() => {
+  window.matchMedia = window.matchMedia || (() => ({ matches: false }));
+});
+
+test('renders name, selected work and experience', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: 'Gautam Parmar' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Selected work' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Experience' })).toBeInTheDocument();
 });
