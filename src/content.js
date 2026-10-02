@@ -170,6 +170,39 @@ const content = {
     { name: "Gujarati", level: "Native" }
   ],
 
+  learning: {
+    intro:
+      "Java and ERP are my profession; machine learning and NLP are what I explore beyond it. These are things I learned and built during my M.Sc. at Paderborn University.",
+    items: [
+      {
+        title: "Fine-tuning RoBERTa for software-architecture posts",
+        context: "Data Science for Software Engineering · group project",
+        text: "Built an NLP pipeline and fine-tuned a pre-trained RoBERTa model on the university's HPC cluster to classify about 10 million Stack Overflow posts as architecture-related or not, and then into evaluation, analysis and synthesis posts. Ran LDA topic modelling on the classified posts to see which topics each category covers. Studied transformer architecture and prompt engineering along the way.",
+        tags: ["Python", "RoBERTa", "Transformers", "LDA", "NLP"]
+      },
+      {
+        title: "More machine learning and NLP from my M.Sc.",
+        context: "Seminar and courses",
+        points: [
+          {
+            name: "Textual Data Streams and Social Media Analytics (seminar)",
+            text: "Reproduced a two-phase textClust stream-clustering pipeline in Python with River and tested whether the paper's claims hold under concept drift.",
+            link: { label: "Code", url: "https://github.com/gautam9199/adaptive-textclust-validation" }
+          },
+          {
+            name: "Computational Argumentation",
+            text: "Worked through a full NLP workflow on argumentative text: lexical analysis, data preparation, training, testing and evaluation, ending in stance analysis."
+          },
+          {
+            name: "ML for Biometrics",
+            text: "Studied the main modes of biometric authentication and how machine learning is applied in each of them."
+          }
+        ],
+        tags: ["Python", "River", "Stream clustering", "Stance analysis", "Machine learning"]
+      }
+    ]
+  },
+
   interests: ["Volleyball", "Volunteering & social work"]
 };
 

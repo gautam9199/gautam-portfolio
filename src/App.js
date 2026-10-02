@@ -17,7 +17,8 @@ const sections = [
   { id: "work", label: "Selected work" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
-  { id: "education", label: "Education" }
+  { id: "education", label: "Education" },
+  { id: "learning", label: "Learning" }
 ];
 
 function initialTheme() {
@@ -218,8 +219,48 @@ function App() {
                 ))}
               </ul>
             </div>
+          </div>
+        </Section>
+
+        <Section id="learning" title="Learning & interests">
+          <p className="section-intro">{content.learning.intro}</p>
+          <div className="learning">
+            {content.learning.items.map((item) => (
+              <article key={item.title} className="learning-item">
+                <h3>{item.title}</h3>
+                <p className="muted small">{item.context}</p>
+                {item.text && <p className="learning-text">{item.text}</p>}
+                {item.points && (
+                  <ul className="learning-points">
+                    {item.points.map((pt) => (
+                      <li key={pt.name}>
+                        <strong>{pt.name}</strong>
+                        <span>
+                          {pt.text}
+                          {pt.link && (
+                            <>
+                              {" "}
+                              <a href={pt.link.url} target="_blank" rel="noreferrer">
+                                {pt.link.label} <FiArrowUpRight />
+                              </a>
+                            </>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <ul className="tags">
+                  {item.tags.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <div className="extras">
             <div>
-              <h3>Interests</h3>
+              <h3>Outside tech</h3>
               <ul className="plain-list">
                 {content.interests.map((i) => (
                   <li key={i}>{i}</li>

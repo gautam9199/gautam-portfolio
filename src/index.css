@@ -502,6 +502,68 @@ img {
   margin-bottom: 4px;
 }
 
+/* Learning */
+
+.section-intro {
+  max-width: 62ch;
+  margin: -8px 0 24px;
+  color: var(--muted);
+}
+
+.learning {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.learning-points {
+  list-style: none;
+  margin: 4px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.94rem;
+}
+
+.learning-points li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+.learning-points a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: 500;
+}
+
+.learning-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.learning-item h3 {
+  font-size: 1rem;
+}
+
+.learning-text {
+  font-size: 0.94rem;
+  margin-bottom: 4px;
+}
+
+.learning-item .tags {
+  margin-top: auto;
+}
+
 /* Footer */
 
 .footer {
@@ -574,6 +636,7 @@ img {
   .highlights,
   .projects,
   .skills,
+  .learning,
   .extras {
     grid-template-columns: 1fr;
   }
