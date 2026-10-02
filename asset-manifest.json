@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/gautam-portfolio/static/css/main.9ca5b066.css",
-    "main.js": "/gautam-portfolio/static/js/main.5ac80a7a.js",
+    "main.css": "/gautam-portfolio/static/css/main.a5b8ea4c.css",
+    "main.js": "/gautam-portfolio/static/js/main.d6d52cd7.js",
     "static/media/lira.png": "/gautam-portfolio/static/media/lira.f335241fc3c9f9fc07e6.png",
     "static/media/macrosoft-logo.png": "/gautam-portfolio/static/media/macrosoft-logo.bf1015447742b0ea6cf8.png",
     "static/media/marwadi.png": "/gautam-portfolio/static/media/marwadi.1e9d7864c0a83e8aacd3.png",
     "static/media/photo.jpeg": "/gautam-portfolio/static/media/photo.c7aff0f3d823c8c370f0.jpeg",
     "static/media/upb-logo.svg": "/gautam-portfolio/static/media/upb-logo.962240cc663c81bc979df2f0ee502138.svg",
     "index.html": "/gautam-portfolio/index.html",
-    "main.9ca5b066.css.map": "/gautam-portfolio/static/css/main.9ca5b066.css.map",
-    "main.5ac80a7a.js.map": "/gautam-portfolio/static/js/main.5ac80a7a.js.map"
+    "main.a5b8ea4c.css.map": "/gautam-portfolio/static/css/main.a5b8ea4c.css.map",
+    "main.d6d52cd7.js.map": "/gautam-portfolio/static/js/main.d6d52cd7.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ca5b066.css",
-    "static/js/main.5ac80a7a.js"
+    "static/css/main.a5b8ea4c.css",
+    "static/js/main.d6d52cd7.js"
   ]
 }
